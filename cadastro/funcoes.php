@@ -53,3 +53,35 @@ function excluir(){
     $mensagem = "Contato excluído";
     include "telas/mensagem.php";
 }
+
+function editar(){
+    $id = $_GET['id'];
+    $contatos1 = file('telas/dados/dados.csv');
+    if($_POST){
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $telefone = $_POST['telefone'];
+
+        $contatos1[$id] = "{$nome};{$email};{$telefone}".PHP_EOL;
+
+        unlink ('telas/dados/dados.csv');
+
+        $arquivo = fopen('telas/dados/dados.csv', 'a+');
+        foreach($contatos1 as $cadaContato){
+            fwrite($arquivo, $cadaContato);
+        }
+
+        fclose($arquivo);
+        $mensagem = "Contato atualizado";
+        include "telas/mensagem.php";
+
+    }
+
+
+    $dados = explode(";", $contatos1[$id]);
+
+
+
+
+    include "telas/editar.php";
+}

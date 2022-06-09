@@ -8,6 +8,7 @@
             <th scope="col">E-mail</th>
             <th scope="col">Telefone</th>
             <th scope="col">Excluir</th>
+            <th scope="col">Editar</th>
         </tr>
         <?php
         foreach($contatos as $posicao=>$cadaContato){
@@ -17,6 +18,7 @@
                 echo '<td>'. $partes[1] .'</td>';
                 echo '<td>'. $partes[2] .'</td>';
                 echo "<td><a href='/excluir?id={$posicao}' class='btn btn-danger btn-sm'>Excluir</a></td>";
+                echo "<td><a href='/editar?id={$posicao}' class='btn btn-warning btn-sm'>Editar</a></td>";
             echo "</tr>";
         }
         ?>

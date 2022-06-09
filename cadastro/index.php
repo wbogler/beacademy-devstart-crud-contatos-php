@@ -23,6 +23,7 @@
             "/cadastro" => cadastro(),
             "/listar" => listar(),
             "/excluir" => excluir(),
+            "/editar" => editar(),
             default => erro404()
         };
     ?>
